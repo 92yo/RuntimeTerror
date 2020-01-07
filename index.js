@@ -31,18 +31,19 @@ function makeRequest(url, callback) {
 function searchByArtist (event) {
   event.preventDefault();
   var input = event.target.artistName.value;
- makeRequest('	https://api.deezer.com/search?q=artist:"' + input+'"&output=JSON' ,writeArtistInfo);
+ makeRequest('https://api.deezer.com/search/artist?q=' + input ,writeArtistInfo);
 }
 
 function getArtist (fetchedData) {
-  return fetchedData.data[0].artist;
+  return fetchedData.data[0];
 }
 
 function writeArtistInfo (error,fetchedData){
   var artist = getArtist(fetchedData);
 document.getElementById('artistName').innerText = artist.name;
 document.getElementById('artistPicture').src=artist.picture_medium;
-document.getElementById('deezerLink').innerText=artist.link;
+document.getElementById('deezerLink').href=artist.link;
+document.getElementById('deezerLink').innerText="Listen on Deezer!"
 }
 
 function logfetchedData (error,fetchedData){
