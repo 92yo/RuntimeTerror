@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <script src="index.js" ></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title >API project</title>
+    <title>Music 4 you</title>
 </head>
+
 <body>
-    
-    <h1 id='artist' >Hello</h1>
-    <form id="form">
-    <input type="text"  id="artistName" placeholder="Search..">
-    <input type="submit" value="Submit" onclick="searchByArtist()">
-</form>
+    <div id="searchDiv">
+        <form id="searchForm">
+            <input type="text" name="artistName" placeholder="Search..">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div id="infoDiv">
+        
+            <h1 id='artistName'></h1>
+            <img src="" id="artistPicture" alt="A picture of the artist">
+            <p id="deezerLink"></p>
+        
+    </div>
+
 </body>
+<script src="index.js"></script>
 
 </html>
