@@ -1,17 +1,17 @@
-const searchForm = document.getElementById("form");
+const searchForm = document.getElementById("searchForm");
 searchForm.addEventListener('submit', searchByArtist)
 /* Auxiliary functions */ 
 
-// makes a fetch request to "url" , and runs callback on the info
+// makes a fetch request to "url" , and runs callback on the fetchedData
 
 function makeRequest(url, callback) {
     fetch('https://cors-anywhere.herokuapp.com/' + url)
     .then(function(response) {
       return response.json();
     })
-    .then(function(info) {
-      console.log(info);
-      callback(null, info);
+    .then(function(fetchedData) {
+      console.log(fetchedData);
+      callback(null, fetchedData);
     
     })
     .catch(function(error) {
@@ -29,21 +29,24 @@ function makeRequest(url, callback) {
 /*** Main functions */
 
 function searchByArtist (event) {
-  
-  
-makeRequest('	https://api.deezer.com/search?q=artist:"' + event+'"&output=JSON' ,writeArtistName);
+  event.preventDefault();
+  console.log(1,event.target.artistName.value);
+ makeRequest('	https://api.deezer.com/search?q=artist:"' + artist+'"&output=JSON' ,writeArtistInfo);
 }
 
-function grabArtist (info) {
-  return info.data[0].artist;
+function getArtist (fetchedData) {
+  return fetchedData.data[0].artist;
 }
 
-function writeArtistName (error,info){
-document.getElementById('artist').innerText = grabArtist(info).name;
+function writeArtistInfo (error,fetchedData){
+  var artist = getArtist(fetchedData);
+document.getElementById('artistName').innerText = artist.name;
+document.getElementById('artistPicture').src=artist.picture_medium;
+document.getElementById('deezerLink').innerText=artist.link;
 }
 
-function loginfo (error,info){
-  console.log(info);
+function logfetchedData (error,fetchedData){
+  console.log(fetchedData);
 }
 
 
