@@ -1,5 +1,6 @@
+const searchForm = document.getElementById("form");
+searchForm.addEventListener('submit', searchByArtist)
 /* Auxiliary functions */ 
-
 
 // makes a fetch request to "url" , and runs callback on the info
 
@@ -27,8 +28,10 @@ function makeRequest(url, callback) {
 
 /*** Main functions */
 
-function searchByArtist (artist) {
-makeRequest('	https://api.deezer.com/search?q=artist:"' + artist+'"&output=JSON' ,writeArtistName);
+function searchByArtist (event) {
+  
+  
+makeRequest('	https://api.deezer.com/search?q=artist:"' + event+'"&output=JSON' ,writeArtistName);
 }
 
 function grabArtist (info) {
