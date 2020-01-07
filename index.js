@@ -1,12 +1,50 @@
-var url = 'https://cors-anywhere.herokuapp.com/http://api.deezer.com/search/track/autocomplete?limit=1&q=eminem'
+/* Auxiliary functions */ 
 
 
+// makes a fetch request to "url" , and runs callback on the info
 
-fetch(url)
+function makeRequest(url, callback) {
+    fetch('https://cors-anywhere.herokuapp.com/' + url)
     .then(function(response) {
-        return response.json();
+      return response.json();
     })
+    .then(function(info) {
+      console.log(info);
+      callback(null, info);
+    
+    })
+    .catch(function(error) {
+    
+      callback(error);
+    
+    })
+  }
 
-.then(function(data) {
-    console.log(data)
-})
+
+
+/******* ******************* */
+
+
+/*** Main functions */
+
+function searchByArtist (artist) {
+makeRequest('	https://api.deezer.com/search?q=artist:"' + artist+'"&output=JSON' ,writeArtistName);
+}
+
+function grabArtist (info) {
+  return info.data[0].artist;
+}
+
+function writeArtistName (error,info){
+document.getElementById('artist').innerText = grabArtist(info).name;
+}
+
+function loginfo (error,info){
+  console.log(info);
+}
+
+
+
+
+/***************** */
+
