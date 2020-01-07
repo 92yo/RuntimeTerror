@@ -30,8 +30,8 @@ function makeRequest(url, callback) {
 
 function searchByArtist (event) {
   event.preventDefault();
-  console.log(1,event.target.artistName.value);
- makeRequest('	https://api.deezer.com/search?q=artist:"' + artist+'"&output=JSON' ,writeArtistInfo);
+  var input = event.target.artistName.value;
+ makeRequest('	https://api.deezer.com/search?q=artist:"' + input+'"&output=JSON' ,writeArtistInfo);
 }
 
 function getArtist (fetchedData) {
