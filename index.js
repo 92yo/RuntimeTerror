@@ -47,7 +47,7 @@ artist = getArtist(fetchedData);
 document.getElementById('artistName').innerText = artist.name;
 document.getElementById('artistPicture').src=artist.picture_medium;
 document.getElementById('deezerLink').href=artist.link;
-document.getElementById('deezerLink').innerText="More on Deezer!"
+document.getElementById('deezerLink').innerText="       More on Deezer!"
 fetchTopTracks();
 }
 
