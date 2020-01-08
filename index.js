@@ -4,6 +4,8 @@ searchForm.addEventListener('submit', searchByArtist)
 
 // makes a fetch request to "url" , and runs callback on the fetchedData
 
+var artist;
+
 function makeRequest(url, callback) {
     fetch('https://cors-anywhere.herokuapp.com/' + url)
     .then(function(response) {
@@ -21,7 +23,7 @@ function makeRequest(url, callback) {
     })
   }
 
-
+ 
 
 /******* ******************* */
 
@@ -41,26 +43,33 @@ function getArtist (fetchedData) {
 function writeArtistInfo (error,fetchedData){
   //test for empty data
  if(checkData(fetchedData) === 'success'){
-var artist = getArtist(fetchedData);
+artist = getArtist(fetchedData);
 document.getElementById('artistName').innerText = artist.name;
 document.getElementById('artistPicture').src=artist.picture_medium;
 document.getElementById('deezerLink').href=artist.link;
 document.getElementById('deezerLink').innerText="More on Deezer!"
-writeTopTracks();
+fetchTopTracks();
 }
 
 }
 
-function writeTopTracks () {
+ 
+
+function writeTopTracks (error, fetchedData) {
+  var topTracks = fetchedData.data
+
   console.log('top tracks working');
-  document.getElementsByClassName("topTrack")[0].innerText = 'example track';
+var tracksArr =document.getElementsByClassName("topTrack");
+  for (var i=0; i<5; i++ ){
+  tracksArr[i].innerText=topTracks[i].title
+  tracksArr[i].href=topTracks[i].link
+  }
 
 }
 
-function logfetchedData (error,fetchedData){
-  console.log(fetchedData);
+function fetchTopTracks (){
+  makeRequest("https://api.deezer.com/artist/" + artist.id+ "/top", writeTopTracks)
 }
-
 
 
 
