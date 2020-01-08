@@ -39,11 +39,22 @@ function getArtist (fetchedData) {
 }
 
 function writeArtistInfo (error,fetchedData){
-  var artist = getArtist(fetchedData);
+  //test for empty data
+ if(checkData(fetchedData) === 'success'){
+var artist = getArtist(fetchedData);
 document.getElementById('artistName').innerText = artist.name;
 document.getElementById('artistPicture').src=artist.picture_medium;
 document.getElementById('deezerLink').href=artist.link;
-document.getElementById('deezerLink').innerText="Listen on Deezer!"
+document.getElementById('deezerLink').innerText="More on Deezer!"
+writeTopTracks();
+}
+
+}
+
+function writeTopTracks () {
+  console.log('top tracks working');
+  document.getElementsByClassName("topTrack")[0].innerText = 'example track';
+
 }
 
 function logfetchedData (error,fetchedData){
@@ -51,6 +62,26 @@ function logfetchedData (error,fetchedData){
 }
 
 
+
+
+/***************** */
+
+/** Handling errors  */
+
+// if no search results are found
+function checkData (fetchedData){
+  if(fetchedData.data.length < 1 )
+  {
+    return noData();
+  }
+
+
+  return 'success';
+}
+
+function noData() {
+  document.getElementById('artistName').innerText = 'Not found!'
+}
 
 
 /***************** */
