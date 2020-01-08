@@ -1,0 +1,39 @@
+body {
+    padding: 4px;
+    display: block;
+    width:371px;
+    height: 812px;
+    z-index: -10;
+    background-image: url(./Images/background.jpg);
+    background-size: cover;
+    background-position: center;
+    color: rgb(116, 28, 231);
+    font-size: 31px;
+}
+
+
+
+#artistSearchForm {
+    height:50px;
+    width: 230px;   
+    font-size: 24px;
+}
+
+#aristSearchSubmit {
+    height:50px;
+    width: 100px;
+    font-size: 38px;
+}
+
+#infoDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+#artistPicture{
+    align-self: flex-start;
+}
+
+#deezerLink {
+    color:rgba(123, 94, 177, 0.979);
+}
