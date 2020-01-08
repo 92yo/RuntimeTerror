@@ -11,7 +11,17 @@ body {
     font-size: 31px;
 }
 
+/*@media (min-width: 900px){
+    body {
 
+
+    }
+}*/
+
+#tracksList{
+display: flex;
+flex-direction: column;
+}
 
 #artistSearchForm {
     height:50px;
@@ -36,4 +46,5 @@ body {
 
 #deezerLink {
     color:rgba(123, 94, 177, 0.979);
+    font-size: 30px;
 }
