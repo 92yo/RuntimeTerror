@@ -45,12 +45,17 @@ var artist = getArtist(fetchedData);
 document.getElementById('artistName').innerText = artist.name;
 document.getElementById('artistPicture').src=artist.picture_medium;
 document.getElementById('deezerLink').href=artist.link;
-document.getElementById('deezerLink').innerText="Listen on Deezer!"
+document.getElementById('deezerLink').innerText="More on Deezer!"
+writeTopTracks();
 }
 
 }
 
+function writeTopTracks () {
+  console.log('top tracks working');
+  document.getElementsByClassName("topTrack")[0].innerText = 'example track';
 
+}
 
 function logfetchedData (error,fetchedData){
   console.log(fetchedData);
