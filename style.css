@@ -1,8 +1,8 @@
 body {
-    margin :0 auto;
+    margin: 0 auto;
     padding: 4px 4px 2px 8px;
     display: block;
-    width:371px;
+    width: 371px;
     height: 808px;
     z-index: -10;
     background-image: url(./Images/background.jpg);
@@ -11,8 +11,8 @@ body {
     background-repeat: no-repeat;
     color: black;
     font-size: 20px;
-    
 }
+
 
 /*@media (min-width: 900px){
     body {
@@ -20,35 +20,36 @@ body {
 
     }
 }*/
-#artistName{
-    margin : 2px;
+
+#artistName {
+    margin: 2px;
     font-size: 30px;
 }
-#tracksList{
-display: flex;
-flex-direction: column;
+
+#tracksList {
+    display: flex;
+    flex-direction: column;
 }
 
 #searchForm {
     display: flex;
     flex-direction: column;
 }
+
 #artistSearchForm {
-    margin : 2px;
-    height:30px;
-    width: 300px;   
+    margin: 2px;
+    height: 30px;
+    width: 300px;
     font-size: 24px;
-    border : 2px solid gray;
+    border: 2px solid gray;
     border-radius: 7px;
 }
 
-
 #aristSearchSubmit {
-   
-    height:30px;
+    height: 30px;
     width: 110px;
     font-size: 24x;
-    border : 2px solid gray;
+    border: 2px solid gray;
     border-radius: 12px;
 }
 
@@ -57,21 +58,22 @@ flex-direction: column;
     flex-direction: column;
 }
 
-#artistPicture{
+#artistPicture {
     align-self: flex-start;
     border-radius: 8px;
 }
 
 #deezerLink {
-    color:rgba(238, 54, 22, 0.979);
+    color: rgba(238, 54, 22, 0.979);
     font-size: 24px;
 }
-
 
 .topTrack {
     margin: 3px;
     padding: 3px;
     font-size: 20px;
-    
 }
 
+a {
+    width: 150px;
+}
